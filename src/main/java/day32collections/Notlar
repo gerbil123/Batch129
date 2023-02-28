@@ -1,0 +1,71 @@
+1. Set<E>
+Set’in karakteristik özelliği aynı elemandan birden fazla olmasına izin vermemesi ve birden fazla null eleman kabul
+etmemesidir.
+ Yani e1 ve e2 elementleri için e1.equals(e2) ise bu iki eleman aynı Set içinde barınamaz.
+  Set tekrar kabul etmez. Yani; tekrarsız verileri depolamak için kullanılır.
+ ● HashSet<E>
+ Super hizlidir, cunku HashSet'ler veridiginiz elemanlari siralamak icin zaman kaybetmez
+ yani; HashSet'lere eklenen elemanlar rastgele siralanirlar.
+HashSet<E>’te veriler hashleme yöntemi ile tutulur. Verilerin sırasının korunacağını garanti etmez.
+ Yani önce e1, sonra e2 elementini kaydedip e2, e1 sırasında çekebilirsiniz.
+ Aynı zamanda HashSet<E> non-synchronized olduğu için birden fazla
+ thread aynı anda bir HashSet’e erişip değiştirmeye çalışırsa problem yaşamamak için
+  manuel bir çözüm olarak synchronized erişim sağlamalıyız.
+    ● LinkedHashSet<E>
+   HashSet’ten tek farkı, eklenen elementlerin ekleme sırasına göre tutulmasıdır.
+   (Insertion order) Tekrarlı element eklendiğinde ilk eklenen element bundan etkilenmez.
+   LinkedHashSet elemanlari siralamakta zaman kaybettigini icin, HashSet'e gore yavastir.
+   ● TreeSet<E>
+   TreeSet elemanlari "natural order"(Kucukten buyuge veya alfabetik sira) a gore dizer.
+    null element kabul etmez. Eklenmeye çalışılırsa NullPointerException hatası verir.
+    TreeSet, "natural order" yaparken cok zaman harcar o yuzden en yavas "Set" dir.
+    2. List<E>
+    List’in karakteristik özellikleri tekrarlı elementlere izin vermesi,
+     elementleri ekleme sırasına göre tutması ve istediğimiz index’e element eklememize izin vermesidir.
+     ● ArrayList<E>
+     Collection framework’te en çok kullanılan class’tır. List özelliklerini barındırır.
+     ArrayList'ler eleman silme ve eleman eklemede basarisizdirlar. O yuzden eleman silme ve ekleme islemleri coklukla
+                  yapilacaksa ArrayList kullanmak tavsiye edilmez.
+     ArrayList -> Ankara Amasya Sivas Isparta İzmir Eskişehir Amasya
+     ● LinkedList<E>
+     Sonuçları bakımından ArrayList ile aynıdır. Fakat aralarında bazı farklar mevcuttur.
+      Arama işlemlerinde LinkedList O(n) iken ArrayList’te O(1)’dir. Silme işlemlerinde ise ArrayList O(n) iken
+      LinkedList O(1)’dir.
+       Ekleme işlemleri de aynı sonuçları verir. Dolayısıyla eğer ekleme ve silme işlemleri sık yapılacaksa
+       LinkedList kullanmak daha avantajlıdır.
+       Arama işlemleri sık yapılacak ise de ArrayList daha avantajlıdır.
+       ArrayList'lerde "search" islemi kolay yapilir cunku index'ler adres gibidir.
+         LinkedList'lerde "search" islemi zor yapilir cunku LinkedList'ler index kullanmaz index kullanmayinca herhangi
+        bir elemani bulmak icin en bastan tum elemanlar kontrol edilir bu da cok fazla is demektir.
+       3. Queue<E>
+      "Queue" larda ilk gelen ilk isleme girer.(First In First Out ==> FIFO)
+               Bazen de son gelen ilk isleme girer.(Last In First Out ==> LIFO)
+               "Deque" "Double Ended Queue" hem "FIFO" hem de "LIFO" icin kullanilir.
+               "Queue" bir interface'dir, bu yuzden "constructor" i yoktur, dolayisiyla object olustururken
+                "new" keyword'unden sonra kullanilamaz
+                      Data TYpe'i "Queue" olan bir object olusturmak icin "new" keyword'unden sonra
+                       i)LinkedList veya ii)PriorityQueue
+                    Class'lari kullanilabilir.
+       4. Map<K, V>
+       Map interface’i collection sınıfına dahil değildir fakat benzer amaçlar taşıdığı aynı başlık altında öğretilir.
+        Map’ler eşleme tablolarıdır. Bir Map’te tekrarlı key olamaz. Tüm value’lar bir key ile eşlenir ve bu key ile
+         çağrılır.
+         soldakiler Unique (yunik) olacak sag taraf tekrarli olabilir de olmayapilir repeatedly (tekrarli) olabilir
+         cat = evcil hayvan
+         dog = evcil hayvan
+         crocodile = timsah
+         map te bir data stractir dir
+         depolarken bu yapiya ihtiyac varsa map kullaniriz
+         mesela ulkeler ve nufuslarini depolamamiz lazim burda sol unique sag tekrarli olabilir burda map kullaniriz
+         mesela okul app imiz var ogrencilerin karne ort ni depolayacagiz sol unique sa[ tekrarli olabilir burda map
+          kullanilmalidir
+       ● HashMap<K, V>
+         "HashMap" cok hizlidir cunku "HashMap" ler "entry" leri siralamak ile ugrasmazlar.
+           "HashMap"lerde bir tane "key" i "null" yapabilirsiniz.
+          "HashMap"lerde birden fazla tane "value" u "null" yapabilirsiniz.
+          "HashMap" ler "multi thread" icin kullanilamaz ve "synchronization" yoktur.
+       ● TreeMap<K, V>
+      TreeMap entry'leri "key" lere gore "natural order" a koyar.
+       TreeMap coook yavastir cunku "natural order" yapmak coook zaman ister.
+         TreeMap "thread-safe" ve "synchronized" degildir.
+           TreeMap'lerin "key" lerinde "null" kullanilamaz ama "value" larda istediginiz kadar kullanabilirsiniz

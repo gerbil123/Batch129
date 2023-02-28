@@ -19,7 +19,7 @@ public class MethodOverloading01 {
     9)Private olmak ise baska classlara gidildiğinde problem oluşur.
     10)"Static" methodlar overload edilebilirler.
     Static olanlar class a yapıştırılır non statik olanlar obje'ye yapıştırılır.
-    class'lar objecklerin kalıbıdır. objectler classların görünümüdür.
+    class'lar objectlerin kalıbıdır. objectler classların görünümüdür.
      */
 
     public static void main(String[] args) {
@@ -45,5 +45,6 @@ public class MethodOverloading01 {
     public static void add(int a, int b, int c) {//burda çalışmaz
         System.out.println(a + b + c);
     }
+
 
 }
